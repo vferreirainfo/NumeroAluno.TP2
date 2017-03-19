@@ -140,11 +140,11 @@ namespace LibraryDL
                                 if (chamadasCliente[forOne] == null)
                                 {
                                     //Processar custo da chamada
-                                    chamadasCliente[forOne].Custo = 0.05; // indica que custo passa a ser 0.05
+                                    c.Custo = 0.05; // indica que custo passa a ser 0.05
 
                                     if (c.DataInicioChamada != null) // se terminar chamada
                                     {
-                                        chamadasCliente[forOne].Duracao = Chamada.contarDuracao(c.DataInicioChamada, c.DataFimChamada);
+                                        c.Duracao = Chamada.contarDuracao(c.DataInicioChamada, c.DataFimChamada);
                                         c.CallNumber.Saldo = c.CallNumber.Saldo - chamadasCliente[forOne].Custo;
 
                                         // adicionar chamada
@@ -173,14 +173,14 @@ namespace LibraryDL
                                 if (chamadasCliente[forTwo] == null)
                                 { 
 
-                                    chamadasCliente[forTwo].Custo = 0.15;
+                                    c.Despesa = 0.15;
 
                                     if (c.DataFimChamada != null) // se terminar chamada
                                     {
                                         // contar e guardar a duracao da chamada na respetiva variavel
-                                        chamadasCliente[forTwo].Duracao = Chamada.contarDuracao(c.DataInicioChamada, c.DataInicioChamada);
+                                        c.Duracao = Chamada.contarDuracao(c.DataInicioChamada, c.DataInicioChamada);
                                         // descontar ao saldo
-                                        //caller.Saldo = caller.Saldo - 0.15; Nao podes substituir 0.15 por custo??
+                                        c.Saldo = c.Saldo - c.Despesa; 
                                         chamadasCliente[forTwo] = c; //adiciona chamada ao array
                                         methodReturn = true;
                                     }
@@ -205,11 +205,11 @@ namespace LibraryDL
                         {
                             //mes = mesc;
                             //dia = diac;
-                            chamadasCliente[forThree].Custo = 0.80; 
+                            c.Custo = 0.80; 
                             if (c.DataFimChamada != null) // se terminar chamada
                             {
                                 c.Duracao = Chamada.contarDuracao(c.DataInicioChamada, c.DataFimChamada);
-                                c.CallNumber.Saldo = c.CallNumber.Saldo - (-chamadasCliente[forThree].Custo);
+                                c.CallNumber.Despesa = c.CallNumber.Despesa - (-c.Custo);
 
                             }
                         }
@@ -220,7 +220,7 @@ namespace LibraryDL
 
                         for (int forSix=0; forSix<chamadasCliente.Length; forSix++)
                         {
-                            chamadasCliente[forSix].Custo = 0.17;
+                            c.Custo = 0.17;
                             if (c.DataFimChamada != null) // se terminar chamada
                                 {
                                     c.Duracao = Chamada.contarDuracao(c.DataInicioChamada, c.DataFimChamada);
@@ -311,7 +311,7 @@ namespace LibraryDL
                         //dia = diac;
                         chamadasCliente[forSeven].Custo = 0.1;
                         chamadasCliente[forSeven].Duracao = Chamada.contarDuracao(c.DataInicioChamada, c.DataFimChamada);
-                        chamadasCliente[forSeven].CallNumber.Despesames = chamadasCliente[forSeven].CallNumber.Despesames + 0.1;
+                        chamadasCliente[forSeven].CallNumber.DespesaMes = chamadasCliente[forSeven].CallNumber.DespesaMes + 0.1;
 
                         //Adcionar ao array
                         chamadasCliente[forSeven] = c;

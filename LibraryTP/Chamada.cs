@@ -367,31 +367,7 @@ namespace LibraryBO
         return (mesNome);
 
         }
-
-        public static bool apagarCham(Cliente p,int numChamada)
-        {
-            Cliente b = new Cliente(p.Nome, p.NumTel, p.Saldo);                                    
-            int contador = 0;           
-            foreach(Chamada x in p.Registo)
-            {
-                //Analisar aqui!
-
-                /*
-                if (p.Registo[numChamada].Duracao<1 || p.Registo[numChamada]!=null || p.Registo[numChamada].Mes<1)
-                {
-                    continue;
-                }
-                */
-                if (contador == 0) contador = 1; // isto nao está bem modificar conforme 
-                //o if acima
-                else
-                {
-                    b.Registo[contador] = x;
-                }
-                contador++;
-            }
-            return true;
-        }
+  
         public static int getMes()
         {
 			DateTime date;
